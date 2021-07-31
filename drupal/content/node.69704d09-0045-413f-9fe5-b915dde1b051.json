@@ -1,7 +1,7 @@
 {
     "uuid": [
         {
-            "value": "1d514c45-da48-4ba9-a987-8b8df524eb7a"
+            "value": "69704d09-0045-413f-9fe5-b915dde1b051"
         }
     ],
     "langcode": [
@@ -18,7 +18,7 @@
     ],
     "revision_timestamp": [
         {
-            "value": "2021-07-31T06:35:54+00:00",
+            "value": "2021-07-31T06:35:20+00:00",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
@@ -42,18 +42,18 @@
     ],
     "title": [
         {
-            "value": "Hello world"
+            "value": "Second piece of content"
         }
     ],
     "created": [
         {
-            "value": "2021-07-31T03:19:35+00:00",
+            "value": "2021-07-31T06:34:57+00:00",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
     "changed": [
         {
-            "value": "2021-07-31T06:35:54+00:00",
+            "value": "2021-07-31T06:35:20+00:00",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
@@ -86,7 +86,7 @@
     ],
     "body": [
         {
-            "value": "<p>Welcome to DruxtJS.<\/p>\r\n\r\n<p>This is an example blog post.<\/p>\r\n",
+            "value": "<p>This is a second piece of content.<\/p>\r\n",
             "format": "basic_html",
             "summary": ""
         }
@@ -102,10 +102,5 @@
         }
     ],
     "field_image": [],
-    "field_tags": [
-        {
-            "target_type": "taxonomy_term",
-            "target_uuid": "6ce49218-0369-4c0d-8b09-84d4444d339c"
-        }
-    ]
+    "field_tags": []
 }
