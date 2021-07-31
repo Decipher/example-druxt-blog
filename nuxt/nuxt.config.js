@@ -59,5 +59,9 @@ export default {
   build: {
   },
 
-  telemetry: true
+  telemetry: true,
+
+  cli: {
+    badgeMessages: [`Druxt API: ${baseUrl}\n`]
+  }
 }
