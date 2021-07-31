@@ -13,10 +13,17 @@ tasks:
       cd $GITPOD_REPO_ROOT/drupal && ddev start
       gp sync-done drupal
 
+  - name: nuxt/storybook
+    command: |
+      gp sync-await drupal
+      gp sync-await yarn
+      cd $GITPOD_REPO_ROOT/nuxt && BASE_URL=$(gp url 8080) yarn storybook
+
   - name: nuxt/druxt
     init: |
       # Installing Nuxt/Druxt frontend.
       cd $GITPOD_REPO_ROOT/nuxt && yarn
+      gp sync-done yarn
     command: |
       gp sync-await drupal
       cd $GITPOD_REPO_ROOT/nuxt && BASE_URL=$(gp url 8080) yarn dev
@@ -29,14 +36,18 @@ vscode:
     - felixfbecker.php-debug
 
 ports:
-  # Nuxt/Druxt
-  - port: 3000
-    onOpen: open-preview
-    visibility: public
   # Drupal
   - port: 8080
-    onOpen: ignore
     visibility: public
+
+  # Nuxt/Druxt
+  - port: 3000
+    visibility: public
+
+  # Nuxt/Druxt
+  - port: 3003
+    visibility: public
+
   # Currently un-notified and unsupported mailhog http port
   - port: 8025
     onOpen: ignore

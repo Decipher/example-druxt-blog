@@ -10,6 +10,7 @@
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
     "lint": "yarn lint:js && yarn lint:style",
+    "storybook": "nuxt storybook",
     "test": "jest"
   },
   "lint-staged": {
@@ -29,6 +30,7 @@
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config-typescript": "^6.0.1",
     "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/storybook": "^4.1.1",
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@vue/test-utils": "^1.2.1",
     "babel-core": "7.0.0-bridge.0",
@@ -46,6 +48,7 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^22.0.0",
     "ts-jest": "^27.0.3",
+    "ts-node": "^10.1.0",
     "vue-jest": "^3.0.4"
   }
 }
