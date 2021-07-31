@@ -17,16 +17,17 @@ tasks:
     command: |
       gp sync-await drupal
       gp sync-await yarn
-      cd $GITPOD_REPO_ROOT/nuxt && BASE_URL=$(gp url 8080) yarn storybook
+      cd $GITPOD_REPO_ROOT/nuxt && yarn storybook
 
   - name: nuxt/druxt
     init: |
       # Installing Nuxt/Druxt frontend.
       cd $GITPOD_REPO_ROOT/nuxt && yarn
+      echo "BASE_URL=$(gp url 8080)" > .env
       gp sync-done yarn
     command: |
       gp sync-await drupal
-      cd $GITPOD_REPO_ROOT/nuxt && BASE_URL=$(gp url 8080) yarn dev
+      cd $GITPOD_REPO_ROOT/nuxt && yarn dev
 
 # VScode xdebug extension
 vscode:
