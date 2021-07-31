@@ -2,5 +2,8 @@
     "shortcut.1132259f-2532-4a73-a39f-d197e0d56a79": [],
     "shortcut.ed3d799d-5275-4d26-a5a7-327c12c3f2c0": [],
     "user.2e50a81a-35aa-4371-a62a-244cbf2b5d91": [],
-    "user.a9a83340-6f4d-436f-b7f7-73a1c0c06bf4": []
+    "user.a9a83340-6f4d-436f-b7f7-73a1c0c06bf4": [],
+    "node.1d514c45-da48-4ba9-a987-8b8df524eb7a": [
+        "user.2e50a81a-35aa-4371-a62a-244cbf2b5d91"
+    ]
 }
