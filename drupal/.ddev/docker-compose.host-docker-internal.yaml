@@ -1,0 +1,13 @@
+#ddev-gitpod-generated
+version: "3.6"
+services:
+  web:
+    environment:
+      - DRUSH_OPTIONS_URI=https://8080-gray-ostrich-gok4203p.ws-us13.gitpod.io
+    extra_hosts:
+    - "host.docker.internal:10.116.11.244"
+    # This adds 8080 on the host (bound on all interfaces)
+    # It goes directly to the web container without
+    # ddev-nginx
+    ports:
+    - 8080:80
