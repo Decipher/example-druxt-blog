@@ -1,3 +1,5 @@
+const baseUrl = process.env.BASE_URL
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -41,7 +43,12 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    'druxt-site'
   ],
+
+  druxt: {
+    baseUrl
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
