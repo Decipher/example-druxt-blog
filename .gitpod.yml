@@ -1,0 +1,73 @@
+image:
+  file: .gitpod/.gitpod.Dockerfile
+
+tasks:
+  # Drupal
+  - name: ddev/drupal
+    init: |
+      # Installing DDev and Drupal backend.
+      .gitpod/download-ddev-images.sh
+      .gitpod/setup-drupal.sh
+    command: |
+      .gitpod/setup-ddev.sh
+      cd $GITPOD_REPO_ROOT/drupal && ddev start
+      gp sync-done drupal
+
+  - name: nuxt/druxt
+    init: |
+      # Installing Nuxt/Druxt frontend.
+      cd $GITPOD_REPO_ROOT/nuxt && yarn
+    command: |
+      gp sync-await drupal
+      cd $GITPOD_REPO_ROOT/nuxt && BASE_URL=$(gp url 8080) yarn dev
+
+# VScode xdebug extension
+vscode:
+  extensions:
+    - dbaeumer.vscode-eslint
+    - octref.vetur
+    - felixfbecker.php-debug
+
+ports:
+  # Nuxt/Druxt
+  - port: 3000
+    onOpen: open-preview
+    visibility: public
+  # Drupal
+  - port: 8080
+    onOpen: ignore
+    visibility: public
+  # Currently un-notified and unsupported mailhog http port
+  - port: 8025
+    onOpen: ignore
+  # Currently un-notified and unsupported mailhog https port
+  - port: 8026
+    onOpen: ignore
+  # Currently un-notified and unsupported phpmyadmin http port
+  - port: 8036
+    onOpen: ignore
+  # Currently un-notified and unsupported phpmyadmin https port
+  - port: 8037
+    onOpen: ignore
+  # router http port that we're ignoring.
+  - port: 8888
+    onOpen: ignore
+  # router https port that we're ignoring.
+  - port: 8889
+    onOpen: ignore
+  # xdebug port
+  - port: 9000
+    onOpen: ignore
+  # projector port
+  - port: 9999
+    
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: false
+    addCheck: true
+    addComment: false
+    addBadge: true
+    addLabel: true
