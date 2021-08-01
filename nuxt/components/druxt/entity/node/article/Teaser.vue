@@ -8,18 +8,8 @@
       <NuxtLink class="card-title" :to="url" v-text="entity.attributes.title" />
 
       <!-- Tags -->
-      <div v-if="tags" class="card-actions mb-5">
-        <DruxtEntity
-          v-for="tag of tags"
-          :key="tag.id"
-          :type="tag.type"
-          :uuid="tag.id"
-        >
-          <template #default="{ entity }">
-            <!-- @todo - Add link to taxonomy page/view -->
-            <div class="badge badge-ghost">{{ entity.attributes.name }}</div>
-          </template>
-        </DruxtEntity>
+      <div v-if="tags" class="mb-5">
+        <slot name="field_tags" />
       </div>
 
       <!-- Body -->
