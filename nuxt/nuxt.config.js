@@ -51,8 +51,11 @@ export default {
     'druxt-site'
   ],
 
+  // Druxt: https://druxtjs.org
   druxt: {
-    baseUrl
+    baseUrl,
+    // Disable deprecated fields.
+    entity: { components: { fields: false }}
   },
   
   // Build Configuration: https://go.nuxtjs.dev/config-build
