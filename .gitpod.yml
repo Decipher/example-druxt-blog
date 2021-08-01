@@ -15,18 +15,18 @@ tasks:
 
   - name: nuxt/storybook
     command: |
-      gp sync-await env
+      .gitpod/setup-druxt.sh
+      gp sync-await drupal
       cd $GITPOD_REPO_ROOT/nuxt && yarn storybook
 
   - name: nuxt/druxt
     init: |
       # Installing Nuxt/Druxt frontend.
-      cd $GITPOD_REPO_ROOT/nuxt && yarn
+      .gitpod/setup-druxt.sh
       gp sync-done yarn
     command: |
+      .gitpod/setup-druxt.sh
       gp sync-await drupal
-      echo "BASE_URL=$(gp url 8080)" > .env
-      gp sync-done env
       cd $GITPOD_REPO_ROOT/nuxt && yarn dev
 
 # VScode xdebug extension
