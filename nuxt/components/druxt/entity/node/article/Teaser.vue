@@ -5,8 +5,10 @@
     </figure> -->
     <div class="card-body">
       <!-- Title -->
-      <NuxtLink v-if="!inline.edit" class="card-title" :to="url" v-text="entity.attributes.title" />
-      <AppFormInput v-else v-model="entity.attributes.title" />
+      <div class="card-title">
+        <NuxtLink v-if="!inline.edit" :to="url" v-text="entity.attributes.title" />
+        <AppFormInput v-else v-model="entity.attributes.title" />
+      </div>
 
       <!-- Tags -->
       <div v-if="tags" class="mb-5">
@@ -17,7 +19,9 @@
       <slot name="body" :inline-edit="inline.edit" />
 
       <div class="card-actions">
-        <NuxtLink class="btn btn-primary" :to="url">Read more</NuxtLink>
+        <NuxtLink v-if="!inline.edit" class="btn btn-primary" :to="url">Read more</NuxtLink>
+        <button v-if="inline.edit" class="btn btn-secondary" @click="saveInlineEdit">Save</button>
+        <button v-if="inline.edit" class="btn btn-neutral" @click="toggleInlineEdit">Close</button>
       </div>
     </div>
   </div>
