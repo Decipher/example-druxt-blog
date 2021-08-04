@@ -1,19 +1,20 @@
 <template>
-  <div class="card bordered hover:shadow mb-5">
+  <div class="card bordered hover:shadow mb-5" @dblclick="toggleInlineEdit">
     <!-- <figure>
       <img src="https://picsum.photos/id/1005/60/40" class="w-full" />
     </figure> -->
     <div class="card-body">
       <!-- Title -->
-      <NuxtLink class="card-title" :to="url" v-text="entity.attributes.title" />
+      <NuxtLink v-if="!inline.edit" class="card-title" :to="url" v-text="entity.attributes.title" />
+      <AppFormInput v-else v-model="entity.attributes.title" />
 
       <!-- Tags -->
       <div v-if="tags" class="mb-5">
-        <slot name="field_tags" />
+        <slot name="field_tags" :inline-edit="inline.edit" />
       </div>
 
       <!-- Body -->
-      <slot name="body" />
+      <slot name="body" :inline-edit="inline.edit" />
 
       <div class="card-actions">
         <NuxtLink class="btn btn-primary" :to="url">Read more</NuxtLink>
@@ -24,9 +25,10 @@
 
 <script>
 import { DruxtEntityMixin } from 'druxt-entity'
+import { MixinEditInline } from '~/mixins/edit-inline'
 
 export default {
-  mixins: [DruxtEntityMixin],
+  mixins: [DruxtEntityMixin, MixinEditInline],
 
   computed: {
     tags: ({ model }) =>
