@@ -1,20 +1,24 @@
 <template>
-  <div class="flex">
-    <div class="flex-auto mr-10">
-      <h1 class="mb-5 text-5xl">{{ entity.attributes.title }}</h1>
-      <slot />
+  <div class="lg:flex">
+    <div class="flex-auto mr-10 w-full lg:w-3/4">
+      <AppInlineEdit>
+        <template #default="{ edit }">
+          <h1 v-if="!edit" class="mb-5 text-5xl">{{ entity.attributes.title }}</h1>
+          <AppFormInput v-if="edit" v-model="entity.attributes.title" />
+        </template>
+      </AppInlineEdit>
+
+      <AppInlineEdit v-for="field of fields" :key="field.id" class="mb-3">
+        <template #default="{ edit }">
+          <slot :name="field.id" :inline-edit="edit" />
+        </template>
+      </AppInlineEdit>
     </div>
 
-    <div>
-      <div class="bordered card">
-        <div class="card-body">
-          <div class="avatar placeholder">
-            <div class="bg-neutral-focus text-neutral-content rounded-full h-16 w-16">
-              <span class="text-xl"></span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="w-full lg:w-1/4">
+      <AppAuthor
+        :uid="model.relationships.uid.data.meta.drupal_internal__target_id"
+      />
     </div>
   </div>
 </template>
