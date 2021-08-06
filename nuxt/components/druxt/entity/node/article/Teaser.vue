@@ -1,5 +1,6 @@
 <template>
-  <div class="card bordered hover:shadow mb-5" @dblclick="toggleInlineEdit">
+  <div class="card bordered hover:shadow mb-5 relative" @dblclick="toggleInlineEdit">
+    <input v-if="$nuxt.context.isDev" v-model="inline.edit" type="checkbox" class="toggle toggle-accent toggle-xs absolute top-2.5 right-2.5">
     <!-- <figure>
       <img src="https://picsum.photos/id/1005/60/40" class="w-full" />
     </figure> -->
