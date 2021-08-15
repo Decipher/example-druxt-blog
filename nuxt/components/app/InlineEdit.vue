@@ -37,7 +37,8 @@ export default {
 
   methods: {
     async onSave() {
-      const url = [this.schema.config.href, this.entity.id].join('/')
+      const { entity, schema } = this.$parent
+      const url = [schema.config.href, entity.id].join('/')
       try {
         this.response = await this.$druxt.axios.patch(
           url,
