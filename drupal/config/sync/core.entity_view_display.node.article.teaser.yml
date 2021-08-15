@@ -12,6 +12,7 @@ dependencies:
     - image.style.medium
     - node.type.article
   module:
+    - entity_reference_revisions
     - image
     - user
 _core:
@@ -21,9 +22,18 @@ targetEntityType: node
 bundle: article
 mode: teaser
 content:
+  field_content:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: ''
+    third_party_settings: {  }
   field_image:
     type: image
-    weight: -1
+    weight: 0
     region: content
     settings:
       image_style: medium
@@ -32,18 +42,17 @@ content:
     label: hidden
   field_tags:
     type: entity_reference_label
-    weight: 10
+    weight: 1
     region: content
     settings:
       link: true
     third_party_settings: {  }
     label: above
   links:
-    weight: 100
+    weight: 3
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   body: true
   comment: true
-  field_content: true
-  field_image: true
-  field_tags: true
