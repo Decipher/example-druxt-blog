@@ -37,13 +37,13 @@ export default {
 
   methods: {
     async onSave() {
-      const { entity, schema } = this.$parent
+      const { entity, model, schema } = this.$parent
       const url = [schema.config.href, entity.id].join('/')
       try {
         this.response = await this.$druxt.axios.patch(
           url,
-          { data: this.model },
-          { header: { 'Content-Type': 'application/vnd.api+json' } }
+          { data: model },
+          { headers: { 'Content-Type': 'application/vnd.api+json' } }
         )
       } catch (e) {
         this.error = e
