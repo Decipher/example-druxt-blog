@@ -17,7 +17,7 @@
         </div>
 
         <!-- Body -->
-        <slot name="body" :inline-edit="edit" />
+        <slot name="field_content" :inline-edit="edit" />
 
         <div class="card-actions">
           <NuxtLink v-if="!edit" class="btn btn-primary" :to="url">Read more</NuxtLink>
