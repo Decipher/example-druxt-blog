@@ -57,14 +57,10 @@ export default {
     // Disable deprecated fields.
     entity: { components: { fields: false }}
   },
-  
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
 
-  telemetry: true,
-
-  cli: {
-    badgeMessages: [`Druxt API: ${baseUrl}\n`]
-  }
+  telemetry: true
 }
